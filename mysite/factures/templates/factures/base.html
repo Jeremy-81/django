@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Factures{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-4">
+        <h1 class="mb-4 text-center">Gestion des factures</h1>
+        <nav class="mb-4">
+            <a href="{% url 'liste_factures' %}" class="btn btn-outline-primary me-2">Factures</a>
+            <a href="{% url 'liste_clients' %}" class="btn btn-outline-secondary">Clients</a>
+        </nav>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

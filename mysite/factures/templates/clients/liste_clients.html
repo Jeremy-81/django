@@ -1,0 +1,39 @@
+{% extends 'factures/base.html' %}
+{% block title %}Clients{% endblock %}
+
+{% block content %}
+<h2>Liste des clients</h2>
+<a href="{% url 'creer_client' %}" class="btn btn-success mb-3">Nouveau client</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>prenom</th>
+            <th>email</th>
+            <th>adresse</th>
+            <th>ville</th>
+            <th>codepostal</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.nom }}</td>
+            <td>{{ client.prenom }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.adresse }}</td>
+            <td>{{ client.ville }}</td>
+            <td>{{ client.codepostal }}</td>
+            <td>
+                <a href="{% url 'modifier_client' client.id %}" class="btn btn-warning btn-sm">Modifier</a>
+                <a href="{% url 'supprimer_client' client.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3" class="text-center">Aucun client trouvé.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

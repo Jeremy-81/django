@@ -1,0 +1,17 @@
+{% extends 'factures/base.html' %}
+{% block title %}Détail facture{% endblock %}
+
+{% block content %}
+<h2>Détail de la facture</h2>
+
+<ul class="list-group mt-3">
+    <li class="list-group-item"><strong>Numéro :</strong> {{ facture.numero }}</li>
+    <li class="list-group-item"><strong>Client :</strong> {{ facture.client.nom }}</li>
+    <li class="list-group-item"><strong>Montant :</strong> {{ facture.montant }} €</li>
+    <li class="list-group-item"><strong>Date :</strong> {{ facture.date_emission }}</li>
+    <li class="list-group-item"><strong>Catégorie :</strong> {{ facture.categorie.nom }}</li>
+    <li class="list-group-item"><strong>Payée :</strong> {% if facture.payee %}OUI{% else %}NON{% endif %}</li>
+</ul>
+
+<a href="{% url 'liste_factures' %}" class="btn btn-secondary mt-3">Retour à la liste</a>
+{% endblock %}

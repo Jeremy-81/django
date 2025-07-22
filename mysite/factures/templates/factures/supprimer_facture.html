@@ -1,0 +1,15 @@
+{% extends 'factures/base.html' %}
+{% block title %}Supprimer facture{% endblock %}
+
+{% block content %}
+<h2>Supprimer la facture</h2>
+
+<div class="alert alert-danger mt-3">
+    Êtes-vous sûr de vouloir supprimer la facture <strong>{{ facture.numero }}</strong> de <strong>{{ facture.client.nom }}</strong> ?
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+    <a href="{% url 'liste_factures' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}

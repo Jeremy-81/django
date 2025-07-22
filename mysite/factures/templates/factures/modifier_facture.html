@@ -1,0 +1,13 @@
+{% extends 'factures/base.html' %}
+{% block title %}Créer une facture{% endblock %}
+
+{% block content %}
+<h2>Modifier une facture</h2>
+
+<form method="post" class="card card-body bg-white shadow-sm mt-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success mt-2">Enregistrer</button>
+    <a href="{% url 'liste_factures' %}" class="btn btn-secondary mt-2">Retour</a>
+</form>
+{% endblock %}
